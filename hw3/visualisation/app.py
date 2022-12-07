@@ -65,25 +65,27 @@ st.plotly_chart(fig)
 st.title('Crime numbers by median income')
 
 income = st.slider(
-    'Select income range', min(df_filter['medIncome'])-1,
-    max(df_filter['medIncome'])+1, ()
+    'Select income range', min(df_filter['medIncome']) - 1,
+                           max(df_filter['medIncome']) + 1, ()
 )
 data = df_filter[(income[0] <= df_filter.medIncome) & (
-            df_filter['medIncome'] <= income[1])].loc[:,
+        df_filter['medIncome'] <= income[1])].loc[:,
        'murders':'arsons':2].agg(['sum']).T.reset_index()
 fig = px.bar(data, x='index', y='sum')
 st.plotly_chart(fig)
 ########################################################################
 st.title('Violent crime and police relation')
-fig = px.scatter(df_filter, x="PolicPerPop", y="ViolentCrimesPerPop", size="LandArea", color="state",
+fig = px.scatter(df_filter, x="PolicPerPop", y="ViolentCrimesPerPop",
+                 size="LandArea", color="state",
                  log_x=True, size_max=60)
 st.plotly_chart(fig)
 
 ########################################################################
 st.title('Relationship between unemployment and crime')
-fig = px.scatter(df_filter, x='PctUnemployed', y='burglPerPop', trendline="ols")
+fig = px.scatter(df_filter, x='PctUnemployed', y='burglPerPop',
+                 trendline="ols")
 st.plotly_chart(fig)
 
-
-
-st.dataframe(df)
+snow = st.checkbox('let it snow?')
+if snow:
+    st.snow()
