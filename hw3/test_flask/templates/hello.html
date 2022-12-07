@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My site</title>
+</head>
+<body>
+<p>Hi! {{name}}</p>
+{% if session.logged_in %}
+<a href="{{ url_for('show_forms') }}">your info</a>
+<a href="{{ url_for('show_thoughts') }}">your thoughts</a>
+{% endif %}
+</body>
+</html>
+<link rel="stylesheet" type="text/css" href="static/style.css">

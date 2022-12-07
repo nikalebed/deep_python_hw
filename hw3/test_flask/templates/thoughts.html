@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thoughts</title>
+</head>
+<body>
+<div>
+<h1>{{session.username}}'s thoughts</h1>
+<form action="{{ url_for('add_thought')}}" method="post">
+    <dl>
+        <dt id="text-form">thinking about...
+        <dd><textarea name=text rows=5 cols=40></textarea>
+        <dd><input type=submit value=Share>
+    </dl>
+</form>
+</div>
+<div overflow: scroll;>
+    <ul class=thoughts>
+
+        {% for thought in thoughts %}
+        <li>
+            <dl>
+                <dt><h2>{{thought.text}}</h2>
+                <dd><p><i>{{thought.created_at}}</i></p>
+            </dl>
+            {% else %}
+        <li><em>Unbelievable. No entries here so far</em>
+            {% endfor %}
+
+    </ul>
+</div>
+</body>
+<link rel="stylesheet" type="text/css" href="static/style.css">
+</html>

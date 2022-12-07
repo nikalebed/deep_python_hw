@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+
+
+</div>
+<h2>About me</h2>
+<form action="{{ url_for('add_form') }}" method=post>
+    <dl>
+        <dt>first name:
+        <dd><input type=text name=name1 value="{{form.first_name}}">
+        <dt>last name:
+        <dd><input type=text name=name2 value="{{form.last_name}}">
+        <dt>date of birth:
+        <dd><input type="date" name="birth_date" value="{{form.date_of_birth}}">
+        <dt>email:
+        <dd><input type="email" name="email" value="{{form.email}}">
+        <dt>education:
+        <dd><input type="text" name="education" value="{{form.education}}">
+        <dt>skills:
+        <dd><textarea name="skills" rows=5 cols=40>{{form.skills}}</textarea>
+        <dt>favourite color:
+        <dd><input type="color" name="color" value="{{form.favourite_color}}">
+        <dd><input type=submit name="save" value="save info">
+        <input type=submit name="pdf" value="get pdf">
+    </dl>
+</form>
+</body>
+</html>
+<link rel="stylesheet" type="text/css" href="static/style.css">

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My site</title>
+</head>
+<body>
+<h1>Hello</h1>
+{% if session.logged_in %}
+<p>logged in as {{ session.username}} </p>
+<a href="{{ url_for('logout') }}">log out</a>
+{% else %}
+<div>
+    <a href="{{ url_for('login') }}"> log in?</a></div>
+<div>
+    <a href="{{ url_for('register') }}"> register?</a></div>
+{% endif %}
+</body>
+</html>
+<link rel="stylesheet" type="text/css" href="static/style.css">
