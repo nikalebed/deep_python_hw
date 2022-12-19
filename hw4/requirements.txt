@@ -1,0 +1,6 @@
+pytelegrambotapi==4.7.0
+aioschedule~=0.5.2
+telebot~=0.0.4
+aiohttp
+aioschedule
+sqlalchemy
